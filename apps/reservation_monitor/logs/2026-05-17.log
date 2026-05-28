@@ -1,0 +1,63 @@
+2026-05-17 21:49:41,418 [INFO] ==================================================
+2026-05-17 21:49:41,419 [INFO] monitoring_reservation_notification.py 起動しました。
+2026-05-17 21:49:50,565 [ERROR] Chrome接続失敗
+Traceback (most recent call last):
+  File "C:\Users\jheyu\program\python\リンカーン予約監視\monitoring_reservation_notification.py", line 344, in main
+    driver = webdriver.Chrome(options=options) # webdriverをChromeに設定
+  File "C:\Users\jheyu\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\chrome\webdriver.py", line 47, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        browser_name=DesiredCapabilities.CHROME["browserName"],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        keep_alive=keep_alive,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jheyu\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\chromium\webdriver.py", line 71, in __init__
+    super().__init__(command_executor=executor, options=options)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jheyu\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 263, in __init__
+    self.start_session(capabilities)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\jheyu\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 366, in start_session
+    response = self.execute(Command.NEW_SESSION, caps)["value"]
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jheyu\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 458, in execute
+    self.error_handler.check_response(response)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\jheyu\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 233, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6dfcb1e35+2e8d45]
+	chromedriver!GetHandleVerifier [0x7ff6df9de6c0+155d0]
+	chromedriver!(No symbol) [0x7ff6df72d57d]
+	chromedriver!(No symbol) [0x7ff6df760087]
+	chromedriver!(No symbol) [0x7ff6df75b982]
+	chromedriver!(No symbol) [0x7ff6df7bc18d]
+	chromedriver!(No symbol) [0x7ff6df7bba96]
+	chromedriver!(No symbol) [0x7ff6df7bdb98]
+	chromedriver!(No symbol) [0x7ff6df7bd956]
+	chromedriver!(No symbol) [0x7ff6df779d58]
+	chromedriver!(No symbol) [0x7ff6df77ac43]
+	chromedriver!GetHandleVerifier [0x7ff6dfcddab9+3149c9]
+	chromedriver!GetHandleVerifier [0x7ff6dfcd802b+30ef3b]
+	chromedriver!GetHandleVerifier [0x7ff6dfcfc872+333782]
+	chromedriver!GetHandleVerifier [0x7ff6df9fb785+32695]
+	chromedriver!GetHandleVerifier [0x7ff6dfa042bc+3b1cc]
+	chromedriver!GetHandleVerifier [0x7ff6df9e7f24+1ee34]
+	chromedriver!GetHandleVerifier [0x7ff6df9e80b4+1efc4]
+	chromedriver!GetHandleVerifier [0x7ff6df9cbf27+2e37]
+	KERNEL32!BaseThreadInitThunk [0x7ffa01ebe957+17]
+	ntdll!RtlUserThreadStart [0x7ffa0370427c+2c]
+
+2026-05-17 21:53:37,062 [INFO] ==================================================
+2026-05-17 21:53:37,062 [INFO] monitoring_reservation_notification.py 起動しました。
+2026-05-17 21:53:54,412 [INFO] 強制ログインなしでログインしました。
+2026-05-17 21:53:56,469 [INFO] 前回データと1日以内のため、『前日～当日』で検索します。
+2026-05-17 21:54:00,643 [INFO] 【新着・変更あり】新しいデータを検知しました！
+2026-05-17 21:54:00,643 [INFO] メインのJSONファイルを更新しました。
+2026-05-17 21:54:00,644 [INFO] 未確認の新着・変更予約が 48 件あります。
+2026-05-17 21:54:00,644 [INFO] ➔ 新着・変更 48 件をチェックし、キューを更新します。

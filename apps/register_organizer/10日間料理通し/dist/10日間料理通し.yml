@@ -1,0 +1,94 @@
+xls_file_name: 10日間料理通し.xls #xlsファイルを参照する場合のファイル名
+xlsx_file_name: 10日間料理通し.xlsx #xlsxファイルを参照する場合のファイル名(xlsファイルがあればそちらを優先するので注意)
+new_file_name: 10日間料理通しnew.xlsx #整理した結果を出力するファイル名
+
+#整理後の出力の設定
+output:
+  new_excel_file: true #同じファイル内に新しくシートを作る場合はfalse
+  new_excel_file_sheet_name: Organized #new_fileがtrueの場合に新規作成するエクセルファイル名
+  sheet_name: Organized #new_fileがfalseの場合に新規作成するシート名
+
+
+#!!! Do not uodate following configuration with no permission from Susumu !!!
+#新しいシートの設定
+new_sheet:
+  general:
+    days_divided_by: 2
+    magnification: 55 #パーセンテージ
+    combine_summary_rank_and_number: true #trueなら集計したランク名と数を同じセルに文字列として格納する
+    column_combined_summary_rank_and_number: 1 #大人の列なら0　del_childAがtrueなら1、falseなら2推奨
+    spaces_combined_summary_rank_and_number: 2 #スペースは半角
+    summary_under_line: single #集計結果の下線、なしの場合は何も入力しない
+    summary_date_under_line:   #集計結果の日付の下線、なしの場合は何も入力しない
+
+  row_settings:
+    top_rows: 3
+    start_days: 4
+    space_rows: 2 #実際のスペース数は-1
+    rows_day_and_guest_type: 2
+    title_start: 1
+    title_end: 3
+
+  row_height:
+    top: 15
+    date_to_rank: 21.75
+    sum: 35.25
+    space: 15
+
+  column_settings:
+    del_childA: true #Aチャメの行を消す場合はtrue、残す場合はfalse(消す場合、数は大人の列に加算される)
+    rank_column: 1
+    start_days: 2
+    title_start: 4
+    title_end: 8
+
+  column_width:
+    rank: 33.0
+    adult_and_child: 10
+
+  span:
+    days: 10
+
+  fonts:
+    font: ＭＳ Ｐ明朝
+    sum_row_color: FFFF00 #黄色
+    dish_row_fgColor_indexed: 44 #インデックスタイプ指定で青
+    size_sum_row: 28
+    size_dish: 20
+    size_day: 20
+    size_guest_type: 20
+    size_rank_name: 20
+    size_number: 20
+    size_summary: 18
+    size_summary_rank_name: 20
+    size_summary_number: 20
+    size_title: 28
+
+
+rank:
+    sColumn: 1 #ランクが入ったセルの列を数値で指定
+    sRow: 6 #ランクが入ったセルの初めの行を指定
+    endRowValue: <<合計>> #基本書き換えないこと
+date:
+    start_column: 4
+    row: 4
+    rows_day_and_guest_type: 2
+    row_day: 1
+    row_guest_type: 2
+span:
+    days: 10
+    columns_each_day: 4
+guest_type:
+    types: 3
+    adult: 0
+    childA: 1
+    childB: 2
+    merged_column_childB: 1 #Bチャメの列に結合された列の数(元の列は数えない)
+option:
+    sRow: 46
+    sColumn: A
+    eRow: 62
+    eColumn: AQ
+
+table:
+  space_from_rank: 2

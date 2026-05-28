@@ -1,0 +1,12 @@
+tl_lincoln:
+  html_login_title: '[TL-リンカーン] - ログイン'
+  login_url: https://www.tl-lincoln.net/accomodation/Ascsc1000InitAction.do
+  top_page_url: https://www.tl-lincoln.net/accomodation/Ascsc1000LogInAction.do
+  reservation_url: https://www.tl-lincoln.net/accomodation/Ascsc3020InitAction.do
+  force_login_toppage_url: https://www.tl-lincoln.net/accomodation/Ascsc1000ForceLogOutAction.do
+
+reservation:
+  skip_headers:
+    - "出力状況"
+    - "選択"
+    - "処理"

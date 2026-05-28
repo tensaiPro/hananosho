@@ -1,0 +1,34 @@
+##########################################################################
+# This file is required to run "monitoring_reservation_notification.py". #
+# Storing configuration for run it in this file.                         #
+##########################################################################
+
+general:
+  debug_mode: True
+
+tl_lincoln:
+  login_id: A4003965
+  login_pw: Susu4uT0m0n1t0r1ng
+  html_login_title: '[TL-リンカーン] - ログイン'
+  login_url: https://www.tl-lincoln.net/accomodation/Ascsc1000InitAction.do
+  top_page_url: https://www.tl-lincoln.net/accomodation/Ascsc1000LogInAction.do
+  reservation_url: https://www.tl-lincoln.net/accomodation/Ascsc3020InitAction.do
+  force_login_toppage_url: https://www.tl-lincoln.net/accomodation/Ascsc1000ForceLogOutAction.do
+
+latest_reservation:
+  json_filename: latest_reservation.json
+
+notification:
+  json_filename: notification_queue.json
+  within_days: 5
+
+chrome:
+  driver_path: 'C:\Users\jheyu\AppData\Local\Programs\Python\Python314\Lib\site-packages\chromedriver-win64\chromedriver-win64'
+  user_data_dir: C:\selenium_profile
+  profile_dir_name: selenium
+  chrome_port: 10325
+
+line:
+  channel_access_token: gYH5hA/TLNljDruwBUIdeaNX7CfSX3jyKWxSsTE9mvkk+JJPiEKLPe8abc8UiHkWwUaUVk68dIUoOTUu2Ggkn3N1pCTKbgaat23hJF1WKoMbffq4LXG7VaLJgyCLUMyYu+Hs93xjJ8kHI+AlKFavnQdB04t89/1O/w1cDnyilFU=
+  myself_id: Uc13e62e128ee7e80e3a16b98b912710e
+  group_id: C58482672c5874ea65b058cb9de5fcebc

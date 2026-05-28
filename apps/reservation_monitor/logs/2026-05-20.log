@@ -1,0 +1,61 @@
+2026-05-20 22:19:39,842 [INFO] ==================================================
+2026-05-20 22:19:39,842 [INFO] main.py 起動しました。
+2026-05-20 22:20:06,503 [INFO] 強制ログインなしでログインしました。
+2026-05-20 22:20:08,605 [INFO] 前回データと1日以内のため、『前日～当日』で検索します。
+2026-05-20 22:20:13,309 [INFO] 【新着・変更あり】新しいデータを検知しました！
+2026-05-20 22:20:13,310 [INFO] メインのJSONファイルを更新しました。
+2026-05-20 22:20:13,310 [INFO] 未確認の新着・変更予約が 48 件あります。
+2026-05-20 22:20:13,314 [INFO] ➔ 新着・変更 48 件をチェックし、キューを更新します。
+2026-05-20 22:21:20,999 [INFO] ==================================================
+2026-05-20 22:21:21,000 [INFO] main.py 起動しました。
+2026-05-20 22:22:11,235 [INFO] ==================================================
+2026-05-20 22:22:11,236 [INFO] main.py 起動しました。
+2026-05-20 22:22:29,421 [INFO] 前回データと1日以内のため、『前日～当日』で検索します。
+2026-05-20 22:22:33,831 [INFO] 最新予約（および変更情報）はありません。何もしません。
+2026-05-20 23:41:25,132 [INFO] ==================================================
+2026-05-20 23:41:25,132 [INFO] main.py 起動しました。
+2026-05-20 23:41:56,699 [INFO] ==================================================
+2026-05-20 23:41:56,699 [INFO] main.py 起動しました。
+2026-05-20 23:41:58,745 [ERROR] Chrome接続失敗
+Traceback (most recent call last):
+  File "C:\Users\jheyu\program\python\hananosho\shared\chrome\chrome.py", line 20, in create_driver
+    driver = webdriver.Chrome(options=set_options())
+                                      ~~~~~~~~~~~^^
+  File "C:\Users\jheyu\program\python\hananosho\shared\chrome\chrome.py", line 36, in set_options
+    options.add_argument(f"--user-data-dir={user_data_dir}")
+                                            ^^^^^^^^^^^^^
+NameError: name 'user_data_dir' is not defined
+2026-05-20 23:42:13,953 [INFO] ==================================================
+2026-05-20 23:42:13,954 [INFO] main.py 起動しました。
+2026-05-20 23:42:16,001 [ERROR] Chrome接続失敗
+Traceback (most recent call last):
+  File "C:\Users\jheyu\program\python\hananosho\shared\chrome\chrome.py", line 21, in create_driver
+    driver = webdriver.Chrome(options=set_options())
+                                      ~~~~~~~~~~~^^
+  File "C:\Users\jheyu\program\python\hananosho\shared\chrome\chrome.py", line 37, in set_options
+    options.add_argument(f"--user-data-dir={user_data_dir}")
+                                            ^^^^^^^^^^^^^
+NameError: name 'user_data_dir' is not defined
+2026-05-20 23:42:54,839 [INFO] ==================================================
+2026-05-20 23:42:54,839 [INFO] main.py 起動しました。
+2026-05-20 23:42:56,885 [ERROR] Chrome接続失敗
+Traceback (most recent call last):
+  File "C:\Users\jheyu\program\python\hananosho\shared\chrome\chrome.py", line 21, in create_driver
+    driver = webdriver.Chrome(options=set_options(user_data_dir))
+                                      ~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\jheyu\program\python\hananosho\shared\chrome\chrome.py", line 38, in set_options
+    options.add_experimental_option("debuggerAddress", f"127.0.0.1:{port}") #同じブラウザを使うためのポート指定、デバッグモード
+                                                                    ^^^^
+NameError: name 'port' is not defined
+2026-05-20 23:43:24,846 [INFO] ==================================================
+2026-05-20 23:43:24,846 [INFO] main.py 起動しました。
+2026-05-20 23:43:44,888 [INFO] 前回データと1日以内のため、『前日～当日』で検索します。
+2026-05-20 23:43:49,504 [INFO] 【新着・変更あり】新しいデータを検知しました！
+2026-05-20 23:43:49,505 [INFO] メインのJSONファイルを更新しました。
+2026-05-20 23:43:49,505 [INFO] 未確認の新着・変更予約が 6 件あります。
+2026-05-20 23:43:49,505 [INFO] ➔ 新着・変更 6 件をチェックし、キューを更新します。
+2026-05-20 23:43:49,505 [INFO]    ➔ 予約番号 6200742866-001-001 の【新規 予約（N日以内）】を検知。キューの先頭に追加します。
+2026-05-20 23:44:20,981 [INFO] ==================================================
+2026-05-20 23:44:20,981 [INFO] main.py 起動しました。
+2026-05-20 23:44:36,807 [INFO] 前回データと1日以内のため、『前日～当日』で検索します。
+2026-05-20 23:44:41,316 [INFO] 最新予約（および変更情報）はありません。何もしません。

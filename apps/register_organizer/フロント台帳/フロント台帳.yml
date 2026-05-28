@@ -1,0 +1,14 @@
+cells:
+    sUnrqurdPplClm: 28
+    eUnrqurdPplClm: 40
+    remrksClm: 64
+
+guestname:
+  sRow: 6
+
+sub:
+  target:
+
+columnAV: 48
+
+maxColumn: 49

@@ -1,0 +1,4 @@
+chrome:
+  driver_path: 'C:\Users\jheyu\AppData\Local\Programs\Python\Python314\Lib\site-packages\chromedriver-win64\chromedriver-win64'
+  user_data_dir: C:\selenium_profile
+  profile_dir_name: selenium

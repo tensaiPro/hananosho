@@ -1,0 +1,33 @@
+#ファイル名
+csv_file_name: Agoda明細.csv
+
+excel_file_name: Agoda明細.xlsx
+
+new_file_name: Agoda明細new.xlsx
+
+delete_cols: #削除する列 逆順なのは手前から削除すると後ろがずれるため
+  - 11
+  - 7
+  - 6
+  - 5
+  - 3
+  - 1
+
+#column_width2
+
+column_width: #幅、列名
+  -
+    - 14.38 #120pxl
+    - "A"
+  -
+    - 20.63 #170pxl
+    - "B"
+  -
+    - 11.88 #100pxl
+    - "C"
+  -
+    - 13.13 #110pxl
+    - "D"
+  -
+    - 13.13 #110pxl
+    - "E"

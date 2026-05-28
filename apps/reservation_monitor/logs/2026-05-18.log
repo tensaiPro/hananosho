@@ -1,0 +1,114 @@
+2026-05-18 23:49:05,880 [INFO] ==================================================
+2026-05-18 23:49:05,880 [INFO] main.py 起動しました。
+2026-05-18 23:54:10,442 [INFO] ==================================================
+2026-05-18 23:54:10,442 [INFO] main.py 起動しました。
+2026-05-18 23:54:54,669 [INFO] ==================================================
+2026-05-18 23:54:54,669 [INFO] main.py 起動しました。
+2026-05-18 23:58:40,662 [INFO] ==================================================
+2026-05-18 23:58:40,662 [INFO] main.py 起動しました。
+2026-05-18 23:58:52,468 [INFO] 前回の予約受信から 999 日以上経過しているため、JSONをリセットして同期します。
+2026-05-18 23:58:52,473 [INFO] 初回またはリセット実行のため、安全な範囲で検索します。
+2026-05-18 23:59:02,736 [ERROR] 検索・ソート処理中にエラーが発生しました。: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6dfcb1e35+2e8d45]
+	chromedriver!GetHandleVerifier [0x7ff6df9de6c0+155d0]
+	chromedriver!(No symbol) [0x7ff6df72d57d]
+	chromedriver!(No symbol) [0x7ff6df78767e]
+	chromedriver!(No symbol) [0x7ff6df78798c]
+	chromedriver!(No symbol) [0x7ff6df7d80c7]
+	chromedriver!(No symbol) [0x7ff6df7d4c63]
+	chromedriver!(No symbol) [0x7ff6df779d58]
+	chromedriver!(No symbol) [0x7ff6df77ac43]
+	chromedriver!GetHandleVerifier [0x7ff6dfcddab9+3149c9]
+	chromedriver!GetHandleVerifier [0x7ff6dfcd802b+30ef3b]
+	chromedriver!GetHandleVerifier [0x7ff6dfcfc872+333782]
+	chromedriver!GetHandleVerifier [0x7ff6df9fb785+32695]
+	chromedriver!GetHandleVerifier [0x7ff6dfa042bc+3b1cc]
+	chromedriver!GetHandleVerifier [0x7ff6df9e7f24+1ee34]
+	chromedriver!GetHandleVerifier [0x7ff6df9e80b4+1efc4]
+	chromedriver!GetHandleVerifier [0x7ff6df9cbf27+2e37]
+	KERNEL32!BaseThreadInitThunk [0x7ffa01ebe957+17]
+	ntdll!RtlUserThreadStart [0x7ffa0370427c+2c]
+Traceback (most recent call last):
+  File "C:\Users\jheyu\program\python\hananosho\apps\reservation_monitor\main.py", line 492, in main
+    element = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, f"//span[text()='{search_range_text}']"))
+    )
+  File "C:\Users\jheyu\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\support\wait.py", line 138, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6dfcb1e35+2e8d45]
+	chromedriver!GetHandleVerifier [0x7ff6df9de6c0+155d0]
+	chromedriver!(No symbol) [0x7ff6df72d57d]
+	chromedriver!(No symbol) [0x7ff6df78767e]
+	chromedriver!(No symbol) [0x7ff6df78798c]
+	chromedriver!(No symbol) [0x7ff6df7d80c7]
+	chromedriver!(No symbol) [0x7ff6df7d4c63]
+	chromedriver!(No symbol) [0x7ff6df779d58]
+	chromedriver!(No symbol) [0x7ff6df77ac43]
+	chromedriver!GetHandleVerifier [0x7ff6dfcddab9+3149c9]
+	chromedriver!GetHandleVerifier [0x7ff6dfcd802b+30ef3b]
+	chromedriver!GetHandleVerifier [0x7ff6dfcfc872+333782]
+	chromedriver!GetHandleVerifier [0x7ff6df9fb785+32695]
+	chromedriver!GetHandleVerifier [0x7ff6dfa042bc+3b1cc]
+	chromedriver!GetHandleVerifier [0x7ff6df9e7f24+1ee34]
+	chromedriver!GetHandleVerifier [0x7ff6df9e80b4+1efc4]
+	chromedriver!GetHandleVerifier [0x7ff6df9cbf27+2e37]
+	KERNEL32!BaseThreadInitThunk [0x7ffa01ebe957+17]
+	ntdll!RtlUserThreadStart [0x7ffa0370427c+2c]
+
+2026-05-18 23:59:36,004 [INFO] ==================================================
+2026-05-18 23:59:36,004 [INFO] main.py 起動しました。
+2026-05-18 23:59:43,027 [INFO] 前回の予約受信から 999 日以上経過しているため、JSONをリセットして同期します。
+2026-05-18 23:59:43,031 [INFO] 初回またはリセット実行のため、安全な範囲で検索します。
+2026-05-18 23:59:53,293 [ERROR] 検索・ソート処理中にエラーが発生しました。: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6dfcb1e35+2e8d45]
+	chromedriver!GetHandleVerifier [0x7ff6df9de6c0+155d0]
+	chromedriver!(No symbol) [0x7ff6df72d57d]
+	chromedriver!(No symbol) [0x7ff6df78767e]
+	chromedriver!(No symbol) [0x7ff6df78798c]
+	chromedriver!(No symbol) [0x7ff6df7d80c7]
+	chromedriver!(No symbol) [0x7ff6df7d4c63]
+	chromedriver!(No symbol) [0x7ff6df779d58]
+	chromedriver!(No symbol) [0x7ff6df77ac43]
+	chromedriver!GetHandleVerifier [0x7ff6dfcddab9+3149c9]
+	chromedriver!GetHandleVerifier [0x7ff6dfcd802b+30ef3b]
+	chromedriver!GetHandleVerifier [0x7ff6dfcfc872+333782]
+	chromedriver!GetHandleVerifier [0x7ff6df9fb785+32695]
+	chromedriver!GetHandleVerifier [0x7ff6dfa042bc+3b1cc]
+	chromedriver!GetHandleVerifier [0x7ff6df9e7f24+1ee34]
+	chromedriver!GetHandleVerifier [0x7ff6df9e80b4+1efc4]
+	chromedriver!GetHandleVerifier [0x7ff6df9cbf27+2e37]
+	KERNEL32!BaseThreadInitThunk [0x7ffa01ebe957+17]
+	ntdll!RtlUserThreadStart [0x7ffa0370427c+2c]
+Traceback (most recent call last):
+  File "C:\Users\jheyu\program\python\hananosho\apps\reservation_monitor\main.py", line 492, in main
+    element = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, f"//span[text()='{search_range_text}']"))
+    )
+  File "C:\Users\jheyu\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\support\wait.py", line 138, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6dfcb1e35+2e8d45]
+	chromedriver!GetHandleVerifier [0x7ff6df9de6c0+155d0]
+	chromedriver!(No symbol) [0x7ff6df72d57d]
+	chromedriver!(No symbol) [0x7ff6df78767e]
+	chromedriver!(No symbol) [0x7ff6df78798c]
+	chromedriver!(No symbol) [0x7ff6df7d80c7]
+	chromedriver!(No symbol) [0x7ff6df7d4c63]
+	chromedriver!(No symbol) [0x7ff6df779d58]
+	chromedriver!(No symbol) [0x7ff6df77ac43]
+	chromedriver!GetHandleVerifier [0x7ff6dfcddab9+3149c9]
+	chromedriver!GetHandleVerifier [0x7ff6dfcd802b+30ef3b]
+	chromedriver!GetHandleVerifier [0x7ff6dfcfc872+333782]
+	chromedriver!GetHandleVerifier [0x7ff6df9fb785+32695]
+	chromedriver!GetHandleVerifier [0x7ff6dfa042bc+3b1cc]
+	chromedriver!GetHandleVerifier [0x7ff6df9e7f24+1ee34]
+	chromedriver!GetHandleVerifier [0x7ff6df9e80b4+1efc4]
+	chromedriver!GetHandleVerifier [0x7ff6df9cbf27+2e37]
+	KERNEL32!BaseThreadInitThunk [0x7ffa01ebe957+17]
+	ntdll!RtlUserThreadStart [0x7ffa0370427c+2c]
+
