@@ -1,140 +1,69 @@
 import logging
-import json
-import requests
-from datetime import datetime
+
+from .queue import (
+    load_queue,
+    save_queue,
+    NOTIFY_QUEUE_FILE,
+    SENT_QUEUE_FILE,
+)
 
 
-def send_line_message(
+# --------------------------------------------------
+# 通知処理
+# --------------------------------------------------
+def notify():
 
-        message,
-
-        token,
-
-        group_id
-
-):
-
-
-    headers = {
-
-        "Authorization":
-
-        f"Bearer {token}"
-
-    }
-
-
-    payload = {
-
-        "to":
-
-        group_id,
-
-        "messages":[
-
-            {
-
-                "type":"text",
-
-                "text":
-
-                message
-
-            }
-
-        ]
-
-    }
-
-
-    r=requests.post(
-
-        "https://api.line.me/v2/bot/message/push",
-
-        headers=headers,
-
-        json=payload,
-
-        timeout=10
-
+    notify_queue = load_queue(
+        NOTIFY_QUEUE_FILE
     )
 
+    if not notify_queue:
 
-    r.raise_for_status()
-
-
-
-def notify(
-
-        queue,
-
-        token,
-
-        group_id,
-
-        max_count=5
-
-):
-
-
-    now=datetime.now()
-
-
-    if not (
-
-        6<=now.hour<22
-
-    ):
-
-        return queue
-
-
-    targets=queue[:max_count]
-
-
-    if not targets:
-
-        return queue
-
-
-    msg=[
-
-        "【予約通知】",
-
-        f"件数:{len(targets)}"
-
-    ]
-
-
-    for item in targets:
-
-        msg.append(
-
-            f"{item['予約番号']}\n"
-
-            f"{item['予約区分']}\n"
-
-            f"{item['チェックイン日']}"
-
+        logging.info(
+            "通知対象なし"
         )
 
+        return
 
-    send_line_message(
-
-        "\n".join(msg),
-
-        token,
-
-        group_id
-
+    sent_queue = load_queue(
+        SENT_QUEUE_FILE
     )
 
+    for item in notify_queue:
+
+        reserve_no = item.get(
+            "予約番号",
+            ""
+        )
+
+        status = item.get(
+            "予約区分",
+            ""
+        )
+
+        logging.info(
+            f"通知: "
+            f"{reserve_no} "
+            f"{status}"
+        )
+
+        # 本来ここでLINE通知
+
+        # 通知済みに移動
+        sent_queue.append(item)
+
+    # 通知済み保存
+    save_queue(
+        SENT_QUEUE_FILE,
+        sent_queue
+    )
+
+    # 通知待ち削除
+    save_queue(
+        NOTIFY_QUEUE_FILE,
+        []
+    )
 
     logging.info(
-
         "通知完了"
-
     )
-
-
-    return queue[max_count:]

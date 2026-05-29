@@ -1,63 +1,99 @@
-from shared.storage.json_read_write import load_json, save_json
-
 import json
 import os
 import logging
 
-QUEUE_DIR = "storage"
 
-NOTIFY_QUEUE_FILE = os.path.join(
-    QUEUE_DIR,
-    "notify_queue.json"
+STATE_DIR = "storage"
+
+STATE_FILE = os.path.join(
+    STATE_DIR,
+    "reservation_state.json"
 )
 
-SENT_QUEUE_FILE = os.path.join(
-    QUEUE_DIR,
-    "sent_queue.json"
-)
+MAX_SAVE_COUNT = 10
 
 
-def load_queue(path):
+# --------------------------------------------------
+# storageディレクトリ作成
+# --------------------------------------------------
+def ensure_storage_dir():
+
+    os.makedirs(
+        STATE_DIR,
+        exist_ok=True
+    )
+
+
+# --------------------------------------------------
+# state読み込み
+# --------------------------------------------------
+def load_state():
+
+    ensure_storage_dir()
 
     try:
-        with open(path, "r", encoding="utf-8") as f:
+
+        with open(
+            STATE_FILE,
+            "r",
+            encoding="utf-8"
+        ) as f:
+
             return json.load(f)
 
     except FileNotFoundError:
+
+        logging.info(
+            "stateファイルなし"
+        )
+
         return []
 
     except json.JSONDecodeError:
-        logging.exception(f"{path} JSON破損")
+
+        logging.exception(
+            "state JSON破損"
+        )
+
         return []
 
 
-def save_queue(path, data):
+# --------------------------------------------------
+# state更新
+# --------------------------------------------------
+def update_state(current_reservations):
 
-    os.makedirs(QUEUE_DIR, exist_ok=True)
+    ensure_storage_dir()
 
-    tmp = path + ".tmp"
+    save_data = []
 
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False)
+    # 最新10件保存
+    for reservation in current_reservations[:MAX_SAVE_COUNT]:
 
-    os.replace(tmp, path)
+        save_data.append(
+            reservation.raw
+        )
 
+    tmp = STATE_FILE + ".tmp"
 
-def update_notification_queue(new_reservations):
+    with open(
+        tmp,
+        "w",
+        encoding="utf-8"
+    ) as f:
 
-    queue = load_queue(NOTIFY_QUEUE_FILE)
+        json.dump(
+            save_data,
+            f,
+            ensure_ascii=False,
+            indent=2
+        )
 
-    for reservation in new_reservations:
-
-        queue.append({
-            "status": reservation.status,
-            "reserve_no": reservation.reserve_no,
-            "checkin": reservation.checkin,
-            "raw": reservation.raw,
-        })
-
-    save_queue(NOTIFY_QUEUE_FILE, queue)
+    os.replace(
+        tmp,
+        STATE_FILE
+    )
 
     logging.info(
-        f"通知キュー追加件数: {len(new_reservations)}"
+        f"state保存件数: {len(save_data)}"
     )

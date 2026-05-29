@@ -1,53 +1,69 @@
 import logging
 
 
-def reservation_key(res):
+# --------------------------------------------------
+# 比較キー
+# --------------------------------------------------
+COMPARE_KEYS = [
 
-    return (
+    "予約番号",
+    "予約区分",
+    "受信日時",
+]
 
-        res.status,
-        res.reserve_no,
-        res.receive_dt,
 
+# --------------------------------------------------
+# 比較用tuple生成
+# --------------------------------------------------
+def build_compare_key(raw):
+
+    return tuple(
+        raw.get(k, "")
+        for k in COMPARE_KEYS
     )
 
 
+# --------------------------------------------------
+# 新規・変更・取消検知
+# --------------------------------------------------
 def detect_new_reservations(
-        current,
-        previous
+    current_reservations,
+    saved_state
 ):
 
-    previous_keys = {
+    # 過去履歴キー集合
+    saved_keys = set()
 
-        (
-            item.get("予約区分"),
-            item.get("予約番号"),
-            item.get("受信日時")
+    for item in saved_state:
 
+        saved_keys.add(
+            build_compare_key(item)
         )
 
-        for item in previous
+    new_reservations = []
 
-    }
+    # 上から順番にチェック
+    for reservation in current_reservations:
 
+        key = build_compare_key(
+            reservation.raw
+        )
 
-    new_items = []
+        # 一致したらそこで終了
+        if key in saved_keys:
 
-    for r in current:
+            break
 
-        key = reservation_key(r)
-
-        if key in previous_keys:
-
-            continue
-
-        new_items.append(r)
-
+        new_reservations.append(
+            reservation
+        )
 
     logging.info(
-
-        f"新規/変更検知:{len(new_items)}"
-
+        f"新規検知件数: "
+        f"{len(new_reservations)}"
     )
 
-    return new_items
+    # 古い順に並び替え
+    return list(
+        reversed(new_reservations)
+    )

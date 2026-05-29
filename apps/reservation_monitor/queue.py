@@ -1,131 +1,188 @@
+import json
+import os
 import logging
-from datetime import datetime,timedelta
+
+from shared.date import is_within_n_days
+
+QUEUE_DIR = "storage"
+
+NOTIFY_QUEUE_FILE = os.path.join(
+    QUEUE_DIR,
+    "notify_queue.json"
+)
+
+SENT_QUEUE_FILE = os.path.join(
+    QUEUE_DIR,
+    "sent_queue.json"
+)
+
+WITHIN_DAYS = 7
 
 
-def is_within_n_days(
-        date_str,
-        n_days
-):
-
-    if not date_str:
-        return False
-
+# --------------------------------------------------
+# JSONロード
+# --------------------------------------------------
+def load_queue(path):
 
     try:
 
-        date_clean = (
-            date_str
-            .split()[0]
-            [:10]
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    except FileNotFoundError:
+
+        return []
+
+    except json.JSONDecodeError:
+
+        logging.exception(f"{path} JSON破損")
+        return []
+
+
+# --------------------------------------------------
+# JSON保存
+# --------------------------------------------------
+def save_queue(path, data):
+
+    os.makedirs(QUEUE_DIR, exist_ok=True)
+
+    tmp = path + ".tmp"
+
+    with open(tmp, "w", encoding="utf-8") as f:
+
+        json.dump(
+            data,
+            f,
+            ensure_ascii=False,
+            indent=2
         )
 
-        target = datetime.strptime(
-
-            date_clean,
-            "%Y.%m.%d"
-
-        ).date()
-
-        today = datetime.today().date()
-
-        return (
-
-            today <= target <=
-
-            today +
-            timedelta(
-                days=n_days
-            )
-
-        )
-
-    except:
-
-        return False
+    os.replace(tmp, path)
 
 
+# --------------------------------------------------
+# 通知キュー更新
+# --------------------------------------------------
+def update_notification_queue(new_reservations):
 
-def update_queue(
-        queue,
-        reservations,
-        within_days
-):
+    # 通知待ちキュー
+    notify_queue = load_queue(
+        NOTIFY_QUEUE_FILE
+    )
 
-    idx_map = {
+    # 通知済みキュー
+    sent_queue = load_queue(
+        SENT_QUEUE_FILE
+    )
 
-        item["予約番号"]:i
-
-        for i,item
-
-        in enumerate(queue)
-
+    # 通知済み検索高速化
+    sent_map = {
+        item.get("予約番号"): item
+        for item in sent_queue
     }
 
+    added_count = 0
 
-    for r in reversed(reservations):
+    # 古い順で処理
+    for reservation in reversed(new_reservations):
 
-        res_id = r.reserve_no
+        reserve_no = reservation.reserve_no
+        status = reservation.status
+        checkin = reservation.checkin
 
-        valid = (
+        # N日以内判定
+        is_within = is_within_n_days(
+            checkin,
+            WITHIN_DAYS
+        )
 
-            is_within_n_days(
+        # 通知済み存在判定
+        already_sent = reserve_no in sent_map
 
-                r.checkin,
-                within_days
+        # --------------------------------------------------
+        # 新規予約
+        # --------------------------------------------------
+        if status == "予約":
 
+            # N日以内だけ通知
+            if not is_within:
+
+                logging.info(
+                    f"{reserve_no} 新規だがN日外"
+                )
+
+                continue
+
+            logging.info(
+                f"{reserve_no} 新規予約追加"
             )
 
-        )
+            notify_queue.append(
+                reservation.raw
+            )
 
+            added_count += 1
 
-        idx = idx_map.get(
-            res_id
-        )
+        # --------------------------------------------------
+        # 変更
+        # --------------------------------------------------
+        elif status == "変更":
 
+            # 通知済みなら
+            # 宿泊日変更の可能性あるので通知
+            if already_sent:
 
-        if idx is not None:
+                logging.info(
+                    f"{reserve_no} 変更通知"
+                )
 
-            if (
+                notify_queue.append(
+                    reservation.raw
+                )
 
-                r.status=="取消"
-
-                or
-
-                not valid
-
-            ):
-
-                queue.pop(idx)
+                added_count += 1
 
             else:
 
-                queue[idx]=r.raw
+                # 未通知ならN日以内だけ
+                if is_within:
 
+                    logging.info(
+                        f"{reserve_no} 未通知変更追加"
+                    )
+
+                    notify_queue.append(
+                        reservation.raw
+                    )
+
+                    added_count += 1
+
+        # --------------------------------------------------
+        # 取消
+        # --------------------------------------------------
+        elif status == "取消":
+
+            logging.info(
+                f"{reserve_no} 取消通知"
+            )
+
+            notify_queue.append(
+                reservation.raw
+            )
+
+            added_count += 1
 
         else:
 
-            if (
+            logging.info(
+                f"{reserve_no} 未知ステータス"
+            )
 
-                valid
+    save_queue(
+        NOTIFY_QUEUE_FILE,
+        notify_queue
+    )
 
-                and
-
-                r.status in [
-
-                    "予約",
-                    "変更"
-
-                ]
-
-            ):
-
-                queue.insert(
-
-                    0,
-                    r.raw
-
-                )
-
-
-
-    return queue
+    logging.info(
+        f"通知キュー追加件数: {added_count}"
+    )
