@@ -85,6 +85,15 @@ def main():
 
     new_reservations = detect_new_reservations(current_reservations, saved_state)
 
+    if new_reservations:
+        download_reservation_csv(driver)
+
+        csv_rows = parse_reservation_csv()
+
+        logging.info(
+            f"CSV件数:{len(csv_rows)}"
+        )
+
     update_state(current_reservations)
 
     update_notification_queue(new_reservations)
