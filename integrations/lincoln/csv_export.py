@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.alert import Alert
 
 
 CSV_PATTERN_NAME = "料理ランク取得用"
@@ -39,6 +40,25 @@ def download_reservation_csv(driver):
     # ----------------------------------
     # 出力パターン選択
     # ----------------------------------
+    #カスタマイズした項目を出力のラジオボタンをクリック
+    WebDriverWait(driver,10).until(
+        EC.invisibility_of_element_located(
+            (By.ID,"_BlockPanel")
+        )
+    )
+    target_text = "カスタマイズした項目を出力"
+    custom_button = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located(
+            (By.XPATH, f"//span[text()='{target_text}']")
+            )
+        )
+    custom_button.click()
+    #セレクトボックスで料理ランク取得用を選択
+    WebDriverWait(driver,10).until(
+        EC.invisibility_of_element_located(
+            (By.ID,"_BlockPanel")
+        )
+    )
     select_element = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located(
             (
@@ -75,6 +95,7 @@ def download_reservation_csv(driver):
     # 出力実行
     # ----------------------------------
     driver.execute_script("doOutput();")
+    Alert(driver).accept()
 
     logging.info("CSV出力実行")
 

@@ -6,7 +6,7 @@ import os
 DOWNLOAD_DIR = r"C:\download"
 
 
-def get_latest_csv():
+def _get_latest_csv():
 
     files = glob.glob(
         os.path.join(
@@ -28,7 +28,7 @@ def get_latest_csv():
 
 def parse_reservation_csv():
 
-    csv_file = get_latest_csv()
+    csv_file = _get_latest_csv()
 
     rows = []
 

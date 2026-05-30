@@ -39,6 +39,7 @@ def set_options(port, user_data_dir):
     #options.add_experimental_option("detach", True) #プログラムを終了してもブラウザを閉じない
     options.add_argument(r'--profile-directory=selenium')
     options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_argument("--disable-popup-blocking") 
 
     return options
 
