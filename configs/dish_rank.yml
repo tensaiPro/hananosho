@@ -1,0 +1,80 @@
+#サ込税別
+早割60:
+    和室12.5畳:
+      - min:
+        max:
+        rank: F
+
+      - min:
+        max:
+        rank: E
+
+      - min:
+        max:
+        rank: D
+
+      - min:
+        max:
+        rank: C
+
+      - min:
+        max:
+        rank: B
+
+      - min:
+        max:
+        rank: A
+
+旬会席:
+    和室12.5畳:
+      2名:
+        - min: 0
+          max: 15999
+          rank: F
+
+        - min: 16000
+          max: 19999
+          rank: E
+
+        - min: 20000
+          max: 24999
+          rank: D
+
+        - min: 25000
+          max: 29999
+          rank: C
+
+        - min: 30000
+          max: 34999
+          rank: B
+
+        - min: 35000
+          max: 99999
+          rank: A
+
+      3名:
+        - min: 0
+          max: 14999
+          rank: F
+
+        - min: 15000
+          max: 18999
+          rank: E
+
+        - min: 19000
+          max: 23999
+          rank: D
+
+        - min: 24000
+          max: 28999
+          rank: C
+
+        - min: 29000
+          max: 33999
+          rank: B
+
+        - min: 34000
+          max: 99999
+          rank: A
+
+        
