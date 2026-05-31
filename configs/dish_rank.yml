@@ -1,30 +1,5 @@
 #サ込税別
-早割60:
-    和室12.5畳:
-      - min:
-        max:
-        rank: F
-
-      - min:
-        max:
-        rank: E
-
-      - min:
-        max:
-        rank: D
-
-      - min:
-        max:
-        rank: C
-
-      - min:
-        max:
-        rank: B
-
-      - min:
-        max:
-        rank: A
-
+#ここから和室12.5畳(ST)
 旬会席:
     和室12.5畳:
       2名:
@@ -77,4 +52,705 @@
           max: 99999
           rank: A
 
-        
+      4名:
+        - min: 0
+          max: 13999
+          rank: F
+
+        - min: 14000
+          max: 17999
+          rank: E
+
+        - min: 18000
+          max: 22999
+          rank: D
+
+        - min: 23000
+          max: 27999
+          rank: C
+
+        - min: 28000
+          max: 32999
+          rank: B
+
+        - min: 33000
+          max: 99999
+          rank: A
+
+      5名:
+        - min: 0
+          max: 13999
+          rank: F
+
+        - min: 14000
+          max: 17999
+          rank: E
+
+        - min: 18000
+          max: 22999
+          rank: D
+
+        - min: 23000
+          max: 27999
+          rank: C
+
+        - min: 28000
+          max: 32999
+          rank: B
+
+        - min: 33000
+          max: 99999
+          rank: A
+
+      6名:
+        - min: 0
+          max: 13999
+          rank: F
+
+        - min: 14000
+          max: 17999
+          rank: E
+
+        - min: 18000
+          max: 22999
+          rank: D
+
+        - min: 23000
+          max: 27999
+          rank: C
+
+        - min: 28000
+          max: 32999
+          rank: B
+
+        - min: 33000
+          max: 99999
+          rank: A
+#ここまで和室12.5畳(ST)
+
+#ここから和室18畳(特B)
+旬会席:
+    和室18畳:
+      2名:
+        - min: 0
+          max: 17999
+          rank: F
+
+        - min: 18000
+          max: 21999
+          rank: E
+
+        - min: 22000
+          max: 26999
+          rank: D
+
+        - min: 27000
+          max: 31999
+          rank: C
+
+        - min: 32000
+          max: 36999
+          rank: B
+
+        - min: 37000
+          max: 99999
+          rank: A
+
+      3名:
+        - min: 0
+          max: 15999
+          rank: F
+
+        - min: 16000
+          max: 19999
+          rank: E
+
+        - min: 20000
+          max: 24999
+          rank: D
+
+        - min: 25000
+          max: 29999
+          rank: C
+
+        - min: 30000
+          max: 34999
+          rank: B
+
+        - min: 35000
+          max: 99999
+          rank: A
+
+      4名:
+        - min: 0
+          max: 13999
+          rank: F
+
+        - min: 14000
+          max: 17999
+          rank: E
+
+        - min: 18000
+          max: 22999
+          rank: D
+
+        - min: 23000
+          max: 27999
+          rank: C
+
+        - min: 28000
+          max: 32999
+          rank: B
+
+        - min: 33000
+          max: 99999
+          rank: A
+
+      5名:
+        - min: 0
+          max: 12999
+          rank: F
+
+        - min: 13000
+          max: 16999
+          rank: E
+
+        - min: 17000
+          max: 21999
+          rank: D
+
+        - min: 22000
+          max: 26999
+          rank: C
+
+        - min: 27000
+          max: 31999
+          rank: B
+
+        - min: 32000
+          max: 99999
+          rank: A
+
+      6名:
+        - min: 0
+          max: 12999
+          rank: F
+
+        - min: 13000
+          max: 16999
+          rank: E
+
+        - min: 17000
+          max: 21999
+          rank: D
+
+        - min: 22000
+          max: 26999
+          rank: C
+
+        - min: 27000
+          max: 31999
+          rank: B
+
+        - min: 32000
+          max: 99999
+          rank: A
+#ここまで和室18畳(特B)
+
+#ここから露天風呂付和室12.5畳(露付)
+旬会席:
+    露天風呂付和室12.5畳:
+      2名:
+        - min: 0
+          max: 17999
+          rank: F
+
+        - min: 18000
+          max: 21999
+          rank: E
+
+        - min: 22000
+          max: 26999
+          rank: D
+
+        - min: 27000
+          max: 31999
+          rank: C
+
+        - min: 32000
+          max: 36999
+          rank: B
+
+        - min: 37000
+          max: 99999
+          rank: A
+
+      3名:
+        - min: 0
+          max: 16999
+          rank: F
+
+        - min: 17000
+          max: 20999
+          rank: E
+
+        - min: 21000
+          max: 25999
+          rank: D
+
+        - min: 26000
+          max: 30999
+          rank: C
+
+        - min: 31000
+          max: 35999
+          rank: B
+
+        - min: 36000
+          max: 99999
+          rank: A
+
+      4名:
+        - min: 0
+          max: 15999
+          rank: F
+
+        - min: 16000
+          max: 19999
+          rank: E
+
+        - min: 20000
+          max: 24999
+          rank: D
+
+        - min: 25000
+          max: 29999
+          rank: C
+
+        - min: 30000
+          max: 34999
+          rank: B
+
+        - min: 35000
+          max: 99999
+          rank: A
+
+      5名:
+        - min: 0
+          max: 15999
+          rank: F
+
+        - min: 16000
+          max: 19999
+          rank: E
+
+        - min: 20000
+          max: 24999
+          rank: D
+
+        - min: 25000
+          max: 29999
+          rank: C
+
+        - min: 30000
+          max: 34999
+          rank: B
+
+        - min: 35000
+          max: 99999
+          rank: A
+
+      6名:
+        - min: 0
+          max: 15999
+          rank: F
+
+        - min: 16000
+          max: 19999
+          rank: E
+
+        - min: 20000
+          max: 24999
+          rank: D
+
+        - min: 25000
+          max: 29999
+          rank: C
+
+        - min: 30000
+          max: 34999
+          rank: B
+
+        - min: 35000
+          max: 99999
+          rank: A
+#ここまで露天風呂付和室12.5畳(露付)
+
+#ここから洋室ツイン36㎡(TW)
+旬会席:
+    洋室ツイン36㎡:
+      2名:
+        - min: 0
+          max: 15999
+          rank: F
+
+        - min: 16000
+          max: 19999
+          rank: E
+
+        - min: 20000
+          max: 24999
+          rank: D
+
+        - min: 25000
+          max: 29999
+          rank: C
+
+        - min: 30000
+          max: 34999
+          rank: B
+
+        - min: 35000
+          max: 99999
+          rank: A
+
+      3名:
+        - min: 0
+          max: 14999
+          rank: F
+
+        - min: 15000
+          max: 18999
+          rank: E
+
+        - min: 19000
+          max: 23999
+          rank: D
+
+        - min: 24000
+          max: 28999
+          rank: C
+
+        - min: 29000
+          max: 33999
+          rank: B
+
+        - min: 34000
+          max: 99999
+          rank: A
+#ここまで洋室ツイン36㎡(TW)
+
+#ここから特別室和室10畳+8畳(レディ)
+旬会席:
+    特別室和室10畳+8畳:
+      2名:
+        - min: 0
+          max: 23999
+          rank: F
+
+        - min: 24000
+          max: 27999
+          rank: E
+
+        - min: 28000
+          max: 32999
+          rank: D
+
+        - min: 33000
+          max: 37999
+          rank: C
+
+        - min: 38000
+          max: 42999
+          rank: B
+
+        - min: 43000
+          max: 99999
+          rank: A
+
+      3名:
+        - min: 0
+          max: 21999
+          rank: F
+
+        - min: 22000
+          max: 25999
+          rank: E
+
+        - min: 26000
+          max: 30999
+          rank: D
+
+        - min: 31000
+          max: 35999
+          rank: C
+
+        - min: 36000
+          max: 40999
+          rank: B
+
+        - min: 41000
+          max: 99999
+          rank: A
+
+      4名:
+        - min: 0
+          max: 19999
+          rank: F
+
+        - min: 20000
+          max: 23999
+          rank: E
+
+        - min: 24000
+          max: 28999
+          rank: D
+
+        - min: 29000
+          max: 33999
+          rank: C
+
+        - min: 34000
+          max: 38999
+          rank: B
+
+        - min: 39000
+          max: 99999
+          rank: A
+
+      5名:
+        - min: 0
+          max: 18999
+          rank: F
+
+        - min: 19000
+          max: 22999
+          rank: E
+
+        - min: 23000
+          max: 27999
+          rank: D
+
+        - min: 28000
+          max: 32999
+          rank: C
+
+        - min: 33000
+          max: 37999
+          rank: B
+
+        - min: 38000
+          max: 99999
+          rank: A
+
+      6名:
+        - min: 0
+          max: 18999
+          rank: F
+
+        - min: 19000
+          max: 22999
+          rank: E
+
+        - min: 23000
+          max: 27999
+          rank: D
+
+        - min: 28000
+          max: 32999
+          rank: C
+
+        - min: 33000
+          max: 37999
+          rank: B
+
+        - min: 38000
+          max: 99999
+          rank: A
+#ここまで特別室和室10畳+8畳(レディ)
+
+#ここから貴賓室(貴賓室)
+旬会席:
+    貴賓室:
+      2名:
+        - min: 0
+          max: 25999
+          rank: F
+
+        - min: 26000
+          max: 29999
+          rank: E
+
+        - min: 30000
+          max: 34999
+          rank: D
+
+        - min: 35000
+          max: 39999
+          rank: C
+
+        - min: 40000
+          max: 44999
+          rank: B
+
+        - min: 45000
+          max: 99999
+          rank: A
+
+      3名:
+        - min: 0
+          max: 23999
+          rank: F
+
+        - min: 24000
+          max: 27999
+          rank: E
+
+        - min: 28000
+          max: 32999
+          rank: D
+
+        - min: 33000
+          max: 37999
+          rank: C
+
+        - min: 38000
+          max: 42999
+          rank: B
+
+        - min: 43000
+          max: 99999
+          rank: A
+
+      4名:
+        - min: 0
+          max: 21999
+          rank: F
+
+        - min: 22000
+          max: 25999
+          rank: E
+
+        - min: 26000
+          max: 30999
+          rank: D
+
+        - min: 31000
+          max: 35999
+          rank: C
+
+        - min: 36000
+          max: 40999
+          rank: B
+
+        - min: 41000
+          max: 99999
+          rank: A
+
+      5名:
+        - min: 0
+          max: 20999
+          rank: F
+
+        - min: 21000
+          max: 24999
+          rank: E
+
+        - min: 25000
+          max: 29999
+          rank: D
+
+        - min: 30000
+          max: 34999
+          rank: C
+
+        - min: 35000
+          max: 39999
+          rank: B
+
+        - min: 40000
+          max: 99999
+          rank: A
+
+      6名:
+        - min: 0
+          max: 20999
+          rank: F
+
+        - min: 21000
+          max: 24999
+          rank: E
+
+        - min: 25000
+          max: 29999
+          rank: D
+
+        - min: 30000
+          max: 34999
+          rank: C
+
+        - min: 35000
+          max: 39999
+          rank: B
+
+        - min: 40000
+          max: 99999
+          rank: A
+#ここまで貴賓室(貴賓室)
+
+#ここから和室12.5畳素泊まり部屋(ST)
+旬会席:
+    和室12.5畳素泊まり部屋:
+      2名:
+        - min: 0
+          max: 99999
+          rank: 食事なし
+
+      3名:
+        - min: 0
+          max: 99999
+          rank: 食事なし
+
+      4名:
+        - min: 0
+          max: 99999
+          rank: 食事なし
+
+      5名:
+        - min: 0
+          max: 99999
+          rank: 食事なし
+
+      6名:
+        - min: 0
+          max: 99999
+          rank: 食事なし
+#ここまで和室12.5畳素泊まり部屋(ST)
+
+#ここから早割60プラン
+早割60:
+    和室12.5畳:
+      2名:
+        - min:
+          max:
+          rank: F
+
+        - min:
+          max:
+          rank: E
+
+        - min:
+          max:
+          rank: D
+
+        - min:
+          max:
+          rank: C
+
+        - min:
+          max:
+          rank: B
+
+        - min:
+          max:
+          rank: A
