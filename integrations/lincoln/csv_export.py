@@ -2,6 +2,7 @@ import os
 import time
 import logging
 
+from pathlib import Path
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
@@ -17,7 +18,18 @@ def download_reservation_csv(driver):
     current_handles = driver.window_handles
 
     logging.info("CSV出力開始")
+    #ダウンロード先指定
+    download_dir = os.path.abspath("./csv")
 
+    os.makedirs(download_dir, exist_ok=True)
+
+    driver.execute_cdp_cmd(
+        "Page.setDownloadBehavior",
+        {
+            "behavior": "allow",
+            "downloadPath": download_dir
+        }
+    )
     # ----------------------------------
     # CSV出力画面
     # ----------------------------------

@@ -7,15 +7,18 @@ import subprocess
 from selenium.webdriver.chrome.options import Options
 import logging
 
-def create_driver(port, user_data_dir):
+def create_driver(port, user_data_dir, options=None):
     """
     作成したクロームのseleniumドライバーを返す
     """
     if not is_browser_running(port):
         launch_chrome(port, user_data_dir)
 
+    if not options:
+        options = _set_default_options(port, user_data_dir)
+
     try:
-        driver = webdriver.Chrome(options=set_options(port, user_data_dir))
+        driver = webdriver.Chrome(options=options)
     except Exception as e:
         logging.exception("Chrome接続失敗")
         sys.exit(1)
@@ -28,7 +31,7 @@ def create_driver(port, user_data_dir):
 
     return driver
 
-def set_options(port, user_data_dir):
+def _set_default_options(port, user_data_dir):
     """
     スクレイピング用のseleniumドライバーにオプションを設定
     """
@@ -39,7 +42,7 @@ def set_options(port, user_data_dir):
     #options.add_experimental_option("detach", True) #プログラムを終了してもブラウザを閉じない
     options.add_argument(r'--profile-directory=selenium')
     options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--disable-popup-blocking") 
+    options.add_argument("--disable-popup-blocking")
 
     return options
 

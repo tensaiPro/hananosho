@@ -18,6 +18,7 @@ from .storage import load_state, update_state
 from .compare import detect_new_reservations
 from .queue import update_notification_queue
 from .notifier import notify
+from .set_chrome_options import set_chrome_options
 
 # -------------------------------
 # 外部ファイルのパス設定
@@ -50,7 +51,7 @@ def main():
     port = config["chrome"]["chrome_port"]
     user_data_dir = config["chrome"]["user_data_dir"]
 
-    driver = create_driver(port, user_data_dir)
+    driver = create_driver(port, user_data_dir, set_chrome_options(port, user_data_dir))
 
 
     #ログイン処理～予約業務ページに行くまでループ

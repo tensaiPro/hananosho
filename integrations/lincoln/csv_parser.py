@@ -3,8 +3,7 @@ import glob
 import os
 
 
-DOWNLOAD_DIR = r"C:\download"
-
+DOWNLOAD_DIR = os.path.abspath("./csv")
 
 def _get_latest_csv():
 
