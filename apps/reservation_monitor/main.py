@@ -75,9 +75,7 @@ def main():
 
         csv_rows = parse_reservation_csv()
 
-        logging.info(
-            f"CSV件数:{len(csv_rows)}"
-        )
+        logging.info(f"CSV件数:{len(csv_rows)}" )
 
     update_state(current_reservations)
 
